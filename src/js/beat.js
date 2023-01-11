@@ -10,6 +10,6 @@ export class Beat extends EventEmitter {
   constructor() {
     super();
   
-    
+    this.emit(Beat.events.BIT);
   }
 }

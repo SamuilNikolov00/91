@@ -15,13 +15,15 @@ export default class Application extends EventEmitter {
     let count = 0;
    let objCount = {count:0};
     this._beat = new Beat();
-    this._beat.on('bit', () => {
+    
+    this._beat.addListener('bit', () => {
       console.log('an event occurred!');
       this._create(objCount,lyrics);
     });
-for(let l of lyrics){
+
+    for(let l of lyrics){
    
-  this._beat.emit(Beat.events.BIT)
+ 
 }
    
 
