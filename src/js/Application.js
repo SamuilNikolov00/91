@@ -1,5 +1,19 @@
 import EventEmitter from "eventemitter3";
-import Beat from "./Beat.js";
+
+class Beat extends EventEmitter {
+  static get events() {
+    return {
+      BIT: "bit",
+    };
+  }
+
+  constructor() {
+    super();
+    setInterval(() => {
+      this.emit(Beat.events.BIT);
+    }, 600);
+  }
+}
 
 export default class Application extends EventEmitter {
   static get events() {
