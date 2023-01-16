@@ -1,19 +1,6 @@
 import EventEmitter from "eventemitter3";
+import {Beat} from "./Beat.js"
 
-class Beat extends EventEmitter {
-  static get events() {
-    return {
-      BIT: "bit",
-    };
-  }
-
-  constructor() {
-    super();
-    setInterval(() => {
-      this.emit(Beat.events.BIT);
-    }, 600);
-  }
-}
 
 export default class Application extends EventEmitter {
   static get events() {
@@ -34,6 +21,8 @@ export default class Application extends EventEmitter {
     });
   }
 
+  
+
 
   _create() {
     const lyrics = ["Ah", "ha", "ha", "ha", "stayin' alive", "stayin' alive"];
@@ -41,7 +30,8 @@ export default class Application extends EventEmitter {
     if (this.count >= lyrics.length) {
       this.count = 0;
     }
-      const message = document.createElement("div");
+      
+    const message = document.createElement("div");
       message.classList.add("message");
       message.innerText = lyrics[this.count++];
       document.querySelector(".main").appendChild(message);
